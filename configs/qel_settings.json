@@ -1,0 +1,20 @@
+{
+ "ba": {
+  "lr_angle_warmup": 0.05,
+  "lr_joint": 0.01,
+  "output_activation": "identity",
+  "output_scale": 0.1
+ },
+ "kp": {
+  "lr_angle_warmup": 0.5,
+  "lr_joint": 0.05,
+  "output_activation": "identity",
+  "output_scale": 1.0
+ },
+ "bm": {
+  "lr_angle_warmup": 0.1,
+  "lr_joint": 0.005,
+  "output_activation": "sigmoid",
+  "output_scale": 1.0
+ }
+}

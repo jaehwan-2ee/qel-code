@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+/RAW/
+/DATA/
+/INPUTS/
+/OUT/
+/cora/
+/cora.tgz

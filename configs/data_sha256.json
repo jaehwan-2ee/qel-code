@@ -1,0 +1,73 @@
+{
+ "ba": {
+  "2025": {
+   "X.npy": "cb43c1e1fca2d10057f1c9db9b9980b1b3f346e2ce13cc3d0fec5fe641e22405",
+   "y.npy": "981171a8dff9aef3bcb967b1468a993b63ae757278a59992694f12e194188482"
+  },
+  "2026": {
+   "X.npy": "97006ed6738f88ac8111ebd7cd946b033eb88d14161a222fc21cf41c30b11917",
+   "y.npy": "2493574499ee88261316e84fd845fc7243e1067771cb139a7f18c80149edd56a"
+  },
+  "2027": {
+   "X.npy": "835d58c42cb694b5f8d8c2e72552a102a2d61d8029c227a71d8483c239c9d4c2",
+   "y.npy": "31a95d35d6107333e50efcf82ccaaec5f698fba1b76380deb9407716cab7ee0d"
+  },
+  "2028": {
+   "X.npy": "f8c04ace3081df1d3c6aa3799bfd03ebfe877df1036ea40f91a0493d76347482",
+   "y.npy": "d4f8445910b4a10943e457c3594fe942efd4c7f5589e863e9cf1f070c5752ee3"
+  },
+  "2029": {
+   "X.npy": "ea803f743ebb50bb4aef47129444fe5bb100bceef117cd41c602c5d78a0fffcb",
+   "y.npy": "b4327ba15aadd9a7e9a5c18c919b8db4580c46e80efbc7cc719f056cca7003fd"
+  }
+ },
+ "kp": {
+  "2025": {
+   "X.npy": "1beb44d53043516ff5a9392c509afa03127c55c9419f4aff18992479e3c21a19",
+   "y.npy": "08c0c95a2e101c202e32db40811180599899d25aab322bcfa8013966633ae657",
+   "weights.npy": "c2deaf320b15cee991b9abafc9891ce3f408d486f2e9a3ff9926b6a5dfa4d381"
+  },
+  "2026": {
+   "X.npy": "9cab7515e1e802225362caebadebe90cf2903891bbbf15f82d5d9b67faba7944",
+   "y.npy": "1f0cf793499a3aab783fd27b7278a6ce601e028052571e1f7d10a7db5c4ba32a",
+   "weights.npy": "c2deaf320b15cee991b9abafc9891ce3f408d486f2e9a3ff9926b6a5dfa4d381"
+  },
+  "2027": {
+   "X.npy": "94994b2f2792fa30e87c8c8f0a1ffb6800f8c5ac93aee8b7d26bd65875c38c95",
+   "y.npy": "cd03f2e3ede49a14bc0a14291e7e5b1487d49f0bf10e77139a8285f8f77bf827",
+   "weights.npy": "c2deaf320b15cee991b9abafc9891ce3f408d486f2e9a3ff9926b6a5dfa4d381"
+  },
+  "2028": {
+   "X.npy": "30c8d72c4a7240df808dd304ec931c5d9cf49187082ce66de6b91310b631002c",
+   "y.npy": "ca055bb2a251cd1aa5d246b45f53deb1d714a5d67b84210b90a8c2a0e235247b",
+   "weights.npy": "c2deaf320b15cee991b9abafc9891ce3f408d486f2e9a3ff9926b6a5dfa4d381"
+  },
+  "2029": {
+   "X.npy": "aaabd1edf4347b24dc37203c23735c293872e59f4c1d9508f6bbb410f269ec00",
+   "y.npy": "360dfc6df5001c445fff7bea5899fe7aa612cb0f46b4def227ee0b4bd6caabcf",
+   "weights.npy": "c2deaf320b15cee991b9abafc9891ce3f408d486f2e9a3ff9926b6a5dfa4d381"
+  }
+ },
+ "bm": {
+  "2025": {
+   "X.npy": "2fef47ace5f0271ec79d1dbced30569f4a2ecd6ea22b60aaeba100d6b037e6bb",
+   "y.npy": "9b7eecb640acdc546a9c496f61255bde60aff05b5920a1d1c87426663ba6bd23"
+  },
+  "2026": {
+   "X.npy": "c343904df272cb4393a30876ad614e54ea6b13aa29ed759d66228bfe8095cff5",
+   "y.npy": "5f6fe96b4f84f6ff0b3c2cc597caf0724d0ef516256fa7378f068287c2ebc690"
+  },
+  "2027": {
+   "X.npy": "61be77b0e57c093d047bf0e5f6d6e5d27b0604f885490319fd69832a56e9453e",
+   "y.npy": "8d47522536c64169a4ed704004b2d6548312bd51f08f18f87929727b8ce2008c"
+  },
+  "2028": {
+   "X.npy": "0dbe3c3d68cc8f4d937f275e17f470299491ce2fcab6280606d9ebaa59c4328b",
+   "y.npy": "c93be82e7b09d7afecaa165eae3b0825649fdd678c16aca6d723e7fc15e24719"
+  },
+  "2029": {
+   "X.npy": "86acb0de331eb2d3ef1ec701c1d5944f4065ff0f094205350a303041373b9cf3",
+   "y.npy": "8b0af9994619466b800c904921c00e5273357623456bb5f2bbf81de4374b9f47"
+  }
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "ba-h8-independent": {
+  "lr": 0.05,
+  "scale_cost": false,
+  "device": "cpu"
+ },
+ "ba-h8-shared": {
+  "lr": 0.02,
+  "scale_cost": false,
+  "device": "cpu"
+ },
+ "ba-h12-independent": {
+  "lr": 0.005,
+  "scale_cost": false,
+  "device": "cpu"
+ },
+ "ba-h12-shared": {
+  "lr": 0.02,
+  "scale_cost": true,
+  "device": "cpu"
+ },
+ "kp-h8-independent": {
+  "lr": 0.02,
+  "scale_cost": false,
+  "penalty_weight": 10.0,
+  "device": "cpu"
+ },
+ "kp-h8-shared": {
+  "lr": 0.5,
+  "scale_cost": false,
+  "penalty_weight": 10.0,
+  "device": "cpu"
+ },
+ "kp-h12-independent": {
+  "lr": 0.05,
+  "scale_cost": false,
+  "penalty_weight": 10.0,
+  "device": "cpu"
+ },
+ "kp-h12-shared": {
+  "lr": 0.005,
+  "scale_cost": false,
+  "penalty_weight": 100.0,
+  "device": "cpu"
+ },
+ "bm-h8-independent": {
+  "lr": 0.02,
+  "scale_cost": false,
+  "penalty_weight": 1.0,
+  "device": "cuda"
+ },
+ "bm-h8-shared": {
+  "lr": 0.1,
+  "scale_cost": false,
+  "penalty_weight": 1.0,
+  "device": "cpu"
+ },
+ "bm-h12-independent": {
+  "lr": 0.2,
+  "scale_cost": true,
+  "penalty_weight": 1.0,
+  "device": "cuda"
+ },
+ "bm-h12-shared": {
+  "lr": 0.01,
+  "scale_cost": false,
+  "penalty_weight": 100.0,
+  "device": "cpu"
+ }
+}

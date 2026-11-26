@@ -1,0 +1,46 @@
+{
+ "release": "Code of the experiments of the QEL paper: QEL (p = 4, 6), eight DFL baselines (OpenPTO) and two SDDR baselines on BA, KP and BM, hidden widths 8 and 12, seed pairs (2025, 1020) ... (2029, 1024).",
+ "environment": {
+  "python": "3.12",
+  "lock_file": "uv.lock",
+  "gpu": "NVIDIA GeForce RTX 4090"
+ },
+ "vendored_code": {
+  "path": "third_party/predictiveco",
+  "repository": "https://github.com/Thinklab-SJTU/PredictiveCO-Benchmark",
+  "commit": "f885426f609288a3fbd2064cd2bf4b4138164745",
+  "license": "MIT",
+  "changes": "34 of the 41 files are unchanged copies of upstream and 7 are edited; UPSTREAM.json in that directory lists every file with its sha256 and describes every edit. THIRD_PARTY_NOTICES.md names the origins of the code."
+ },
+ "data": {
+  "raw_sources": {
+   "ba/budget_allocation_data.pkl": {
+    "sha256": "11a0ac25f526c11f9fee9808c78f77055e036022540a5dd433a90e10393c786f",
+    "source": "https://github.com/sanketkshah/LODLs (data/budget_allocation_data.pkl, Git LFS, 400119400 bytes)"
+   },
+   "kp/prices2013.dat": {
+    "sha256": "c8086b6b026c1edce01bea265392e42ce46245e9f7f5e88d871232e8c6176faf",
+    "source": "https://github.com/JayMan91/aaai_predit_then_optimize (prices2013.dat)"
+   },
+   "bm/cora.cites": {
+    "sha256": "ec1a372391b7f0f60a6aff0084e8abd8f19f0faa7e1f2441a41c492042d5945e",
+    "source": "https://linqs-data.soe.ucsc.edu/public/lbc/cora.tgz"
+   },
+   "bm/cora.content": {
+    "sha256": "b8ebed0fd45e53995abafd1b70cf6a9fcc8f86abc5826d69b97fe6ca46e9c8ee",
+    "source": "https://linqs-data.soe.ucsc.edu/public/lbc/cora.tgz"
+   }
+  },
+  "datasets": "configs/data_sha256.json: sha256 of the X/y/weights files written by data.regenerate (15 datasets, 35 files)",
+  "split_inputs": "configs/split_inputs_sha256.json: sha256 of the TRAIN/VALID files and of the TEST files written by data.split_inputs",
+  "derived_file": {
+   "data/bm/precomputed/cora_cites_metis.txt.part.135": "135-way partition of the Cora citation graph, computed once on macOS (arm64) with METIS 5.1.0 through PyMetis 2025.2.2 (nparts=135, seed 2026); nodes numbered in order of first appearance in cora.cites (NetworkX 3.6), adjacency lists sorted; line i is the part of node i"
+  }
+ },
+ "sddr": {
+  "reference": "Zhang, Liu and Zhao, Operations Research Letters 68:107486, 2026",
+  "repository": "https://github.com/zhangyiy0223/SDDR",
+  "commit": "f111485702fc5d1e8f17ff5d4f554c45a4abf62c",
+  "use": "baselines/sddr*.py is an implementation written for this repository; no source code of that repository is included. The margin 0.3 and the inverse-temperature schedule follow its main_constr_basic.py."
+ }
+}

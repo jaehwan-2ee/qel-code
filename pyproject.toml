@@ -1,0 +1,41 @@
+[project]
+name = "qel-code"
+version = "0.1.0"
+description = "Code for the QEL paper experiments (QEL, DFL baselines, SDDR baselines)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12.11, <3.13"
+dependencies = [
+    "numpy>=2.3.4",
+    "scipy>=1.16.2",
+    "pandas>=2.2,<3",
+    "networkx==3.6",
+    "scikit-learn>=1.7.2",
+    "gurobipy<13.0.0",
+    "torch==2.11.0",
+    "jax[cuda12]==0.11.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "cvxpy>=1.8.2",
+    "cvxpylayers>=1.1.0",
+    "ruamel-yaml==0.17.40",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["third_party"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B905"]  # zip() without strict=: the zipped sequences are built with equal lengths
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

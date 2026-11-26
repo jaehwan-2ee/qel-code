@@ -1,0 +1,294 @@
+{
+ "repository": "https://github.com/Thinklab-SJTU/PredictiveCO-Benchmark",
+ "commit": "f885426f609288a3fbd2064cd2bf4b4138164745",
+ "note": "The files of the upstream tree that the eight DFL baselines load on the three problems. upstream_sha256 is the sha256 of the file at the commit. An edited file carries a comment line that says so and has its own sha256. The origins of parts of the upstream code are listed in THIRD_PARTY_NOTICES.md.",
+ "settings": [
+  "Batch size 1 for every method. The upstream benchmark scripts (shells/benchmarks/budget.sh, knapsack-energy.sh and bimatching.sh) use the default 256 for Blackbox and Identity, and for SPO on BA and KP.",
+  "One hidden layer of 8 or 12 tanh units. The upstream defaults are 32 ReLU units.",
+  "Early stopping with patience 50. The upstream default is 40.",
+  "LODL uses openpto/config/models/lodl/lodl5k.yaml (5000 samples, sum reduction) on all three problems. The upstream KP script uses default.yaml (500 samples, mean reduction); the upstream BA script names a lodl5k.yaml path that does not exist at the commit.",
+  "The Adam learning rate 0.01 and one optimizer step per epoch are the upstream defaults; the 300 epochs are those of the upstream benchmark scripts.",
+  "The problem classes are replaced by those of baselines/dfl_problems.py: the data of this repository, a linear BA objective with an argmax decision and a linear predictor output (upstream: ReLU), and exact BM assignments on VALID and TEST.",
+  "baselines/dfl.py redirects the two random.seed calls of the LODL code to the model seed."
+ ],
+ "files": [
+  {
+   "path": "LICENSE",
+   "status": "unchanged",
+   "upstream_sha256": "9d65c09a177f3fd8a0a26ec1fde1f3c044648d15f20af64ee3f775520ab72b73"
+  },
+  {
+   "path": "openpto/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "dca050a462fc98e51a952783c8ee423bd10bdecd32ed5a8352be65c4c3a44ea5"
+  },
+  {
+   "path": "openpto/config/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "fcb087f5f1a99b1f56bcb8106784849c4b15848edfe7067b01c654dfca037d0d"
+  },
+  {
+   "path": "openpto/config/models/default.yaml",
+   "status": "unchanged",
+   "upstream_sha256": "483034488f0bd4b3d118390457907cf9b9ea6852e03e4e9f5be28612738a96a4"
+  },
+  {
+   "path": "openpto/config/models/lodl/lodl5k.yaml",
+   "status": "unchanged",
+   "upstream_sha256": "4b94706a983434bf7ac279fcdcb6d701384d4881d7d46622da4afa2d32ea2c8c"
+  },
+  {
+   "path": "openpto/config/probs/bipartitematching.yaml",
+   "status": "unchanged",
+   "upstream_sha256": "139c840077852a761dc02f457e733381de1e7a761528305f79e0c18d992e297c"
+  },
+  {
+   "path": "openpto/config/probs/budgetalloc.yaml",
+   "status": "unchanged",
+   "upstream_sha256": "53b78ccf10f971131051d77f49f77418cfa33539878074e6671764e7af3ba650"
+  },
+  {
+   "path": "openpto/config/probs/knapsack-real.yaml",
+   "status": "unchanged",
+   "upstream_sha256": "28dba39b80d3d851cc1e534a77f630ac2002bf93991f5f44f84b6a89ee0474c0"
+  },
+  {
+   "path": "openpto/config/utils_conf.py",
+   "status": "unchanged",
+   "upstream_sha256": "fc874b607bc11fd207293406bebb5158ac672d941e834aef6cb830c38ae624f2"
+  },
+  {
+   "path": "openpto/expmanager/ExpManager.py",
+   "status": "edited",
+   "upstream_sha256": "5158f99a093c2e11e42e23b3956aa4f241b1b126ae67d5dabd323e1da18243cf",
+   "sha256": "b626ac82f6239a8a5684210f3114718f505a50bb5bbc38ff9abcb97e63f9769e",
+   "changes": [
+    "The loss receives the dataset row index of the instance. Upstream passes the position of the batch within the epoch, and its training loader is shuffled, so LODL applied the surrogate loss fitted for one instance to another."
+   ],
+   "methods": [
+    "lodl"
+   ],
+   "effect": "changes the LODL results"
+  },
+  {
+   "path": "openpto/expmanager/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "a5a9a9d3e0670acee4d6dc3f396e55b9da36e859f8cf21b8a3355b66558127a1"
+  },
+  {
+   "path": "openpto/expmanager/utils_manager.py",
+   "status": "edited",
+   "upstream_sha256": "136d45ca369db1386a70f28c531115954fdee98d966678022c9ba91514c119b6",
+   "sha256": "362d5946a5bc11d5f5576bdccbbcde74e2b52581935d885f42092f00b5000a8b",
+   "changes": [
+    "Every item of the dataset carries its row index, which ExpManager.py passes to the loss in training."
+   ],
+   "methods": [
+    "lodl"
+   ],
+   "effect": "changes the LODL results"
+  },
+  {
+   "path": "openpto/method/Models/Blackbox.py",
+   "status": "edited",
+   "upstream_sha256": "cf3ca234ac6e11d68df3f7d99490a7a7bd653c69d1638a23c4dd4456f7d87f1e",
+   "sha256": "4939516d900876362b7262bf50ed176bbfec28c7cdd8861d9825c47783188f61",
+   "changes": [
+    "The loss value is the objective of the decision under the true coefficients. Upstream evaluates the decision under the predicted coefficients, which adds a second gradient path through the objective."
+   ],
+   "methods": [
+    "blackbox"
+   ],
+   "effect": "changes the Blackbox results"
+  },
+  {
+   "path": "openpto/method/Models/Identity.py",
+   "status": "edited",
+   "upstream_sha256": "01689059ae9a3237d232dff08eff90035a900e921477d44451d51e2cc7bf2245",
+   "sha256": "5a8cc288e0b3c22fb4a20cda288df12f4d8905a80ef395ac3767b1b578eec533",
+   "changes": [
+    "The loss value is the objective of the decision under the true coefficients. Upstream evaluates the decision under the predicted coefficients, which adds a second gradient path through the objective."
+   ],
+   "methods": [
+    "identity"
+   ],
+   "effect": "changes the Identity results"
+  },
+  {
+   "path": "openpto/method/Models/LODLs.py",
+   "status": "edited",
+   "upstream_sha256": "d21636b320efc62b151d526d14b65d3b6c5575c6284f69a3f431d2f6fb2b1aae",
+   "sha256": "9fb793aca066ee7a31e931031e61b9cbc8e24775c95e8644d82888eeb41705a4",
+   "changes": [
+    "The import of openpto.problems.RMAB, a module that upstream does not contain at this commit, and the branch that uses it are removed. Without this the file cannot be imported.",
+    "A sampled decision is scored under the true coefficients of its instance. Upstream takes the objective that get_decision returns, which is computed under the sampled coefficients.",
+    "The surrogate loss is fitted to the sampled regrets by the sum of squared errors. Upstream uses the two-stage loss of the problem, which is the binary cross-entropy for BM and the same sum of squared errors for BA and KP.",
+    "The centre Y of the surrogate WeightedMSE, the one used here, is a buffer. Upstream makes it a trainable parameter, so it moves while the surrogate is fitted."
+   ],
+   "methods": [
+    "lodl"
+   ],
+   "effect": "changes the LODL results"
+  },
+  {
+   "path": "openpto/method/Models/LTR.py",
+   "status": "unchanged",
+   "upstream_sha256": "fc8c00431e9ab6856a4ca13046c4438d02bd0f82de57e854ea77888bb3d27048"
+  },
+  {
+   "path": "openpto/method/Models/MSE.py",
+   "status": "unchanged",
+   "upstream_sha256": "22e7d9ef3122d0bff53f6700b35b431c68e720fe971f2b4c6d25a982978e350d"
+  },
+  {
+   "path": "openpto/method/Models/NCE.py",
+   "status": "unchanged",
+   "upstream_sha256": "e2d93ab37cd4babfe75463783cc04edd0d59c81f7832420af725d4987a0d9671"
+  },
+  {
+   "path": "openpto/method/Models/SPO.py",
+   "status": "unchanged",
+   "upstream_sha256": "e24db4fe8ffa8c56c09d83ae0bd0b5711becb8f2ed3fbc1a6f4f5d7778216e79"
+  },
+  {
+   "path": "openpto/method/Models/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+   "path": "openpto/method/Models/abcOptModel.py",
+   "status": "unchanged",
+   "upstream_sha256": "62a5a230ee5f0c960bc8eb36945255ffb1ae5763d5bafe73472bfe5d9dc12e36"
+  },
+  {
+   "path": "openpto/method/Models/utils_loss.py",
+   "status": "unchanged",
+   "upstream_sha256": "27fcf8531a860347ae5b0725c073c69bb3e20477e81563e7625f83a890e988f2"
+  },
+  {
+   "path": "openpto/method/Models/wrapper_loss.py",
+   "status": "unchanged",
+   "upstream_sha256": "e20736af3cd2cc42997056e44bae7336acce0a5925e7c9c2a002ee474830a872"
+  },
+  {
+   "path": "openpto/method/Predicts/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "openpto/method/Predicts/dense.py",
+   "status": "unchanged",
+   "upstream_sha256": "ec3796b1ae3a5ae1f02691d982ac329ea0d61c623cf84f5ad000f37ada6665f4"
+  },
+  {
+   "path": "openpto/method/Predicts/wrapper_predicts.py",
+   "status": "edited",
+   "upstream_sha256": "efa4426bad7ad182d4c8b7c0d729cb72f362f3ea95499a40b7fae5f43e8700c9",
+   "sha256": "04360441f4c75d3cfdb0a7c35e1a1a8b68085ab6b7bbf70e90f49202e9a815e6",
+   "changes": [
+    "Only the classes that this repository uses are imported; the others need files that are not included."
+   ],
+   "methods": [
+    "blackbox",
+    "identity",
+    "spo",
+    "nce",
+    "point-ltr",
+    "pair-ltr",
+    "list-ltr",
+    "lodl"
+   ],
+   "effect": "no effect on the results"
+  },
+  {
+   "path": "openpto/method/Solvers/__init__.py",
+   "status": "unchanged",
+   "upstream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "openpto/method/Solvers/abcptoSolver.py",
+   "status": "unchanged",
+   "upstream_sha256": "415649a8a7f12b5f3d09551e32babf9220c596138195135623f9e3429f063ef5"
+  },
+  {
+   "path": "openpto/method/Solvers/cvxpy/cp_bmatching.py",
+   "status": "unchanged",
+   "upstream_sha256": "444eab91d41c866969aeb5f1bd61b30e31963f074e67df55da42ea5b5e56324f"
+  },
+  {
+   "path": "openpto/method/Solvers/grb/grbSolver.py",
+   "status": "unchanged",
+   "upstream_sha256": "42db5f283c2d74afe8a9b4f98ca9856d1ea3e54b643c13248be7bdd0e51fed05"
+  },
+  {
+   "path": "openpto/method/Solvers/grb/grb_knapsack.py",
+   "status": "unchanged",
+   "upstream_sha256": "1be8e323c40a309f2fdb7024d20cca1398a32c9b152761fbcef623b8a8a292fd"
+  },
+  {
+   "path": "openpto/method/Solvers/neural/BudgetallocSolver.py",
+   "status": "unchanged",
+   "upstream_sha256": "14e49c49943b1759818d808fb983a52b1bdbba304f075cdc8fa7d6f3beb0c2c8"
+  },
+  {
+   "path": "openpto/method/Solvers/neural/submodular.py",
+   "status": "unchanged",
+   "upstream_sha256": "abde53dcfb05ecf39fb29c526b443882f8aaef32ebc2541f6327907b17347d02"
+  },
+  {
+   "path": "openpto/method/Solvers/utils_solver.py",
+   "status": "unchanged",
+   "upstream_sha256": "32b6839cf71244f1448e0a19c83691e2a6b26cf16408f413b368fd99eca9421d"
+  },
+  {
+   "path": "openpto/method/Solvers/wrapper_solver.py",
+   "status": "edited",
+   "upstream_sha256": "1f193bd9ed4039980bc0d2bcad1a0afa57820e3d2f6de13090e30623f2911255",
+   "sha256": "4afa7ffd238197822f22ca9a9cec821282ffd89e0971ec29f0877b8dc67d022f",
+   "changes": [
+    "Only the classes that this repository uses are imported; the others need files that are not included."
+   ],
+   "methods": [
+    "blackbox",
+    "identity",
+    "spo",
+    "nce",
+    "point-ltr",
+    "pair-ltr",
+    "list-ltr",
+    "lodl"
+   ],
+   "effect": "no effect on the results"
+  },
+  {
+   "path": "openpto/method/utils_method.py",
+   "status": "unchanged",
+   "upstream_sha256": "64ab33f47bb0287149417acf13198b84a59610a0d161f45e8c8d719da81906af"
+  },
+  {
+   "path": "openpto/metrics/evals.py",
+   "status": "unchanged",
+   "upstream_sha256": "b2d1be34ea809d4bd0a48b573a255ea16bff268703665ec7ae7f2dd3ba7ea2d9"
+  },
+  {
+   "path": "openpto/problems/BipartiteMatching.py",
+   "status": "unchanged",
+   "upstream_sha256": "08d3115e6f29d946f6ba6fa1e394869fa7975423ff8b1e96e9c7cefe7dc2d236"
+  },
+  {
+   "path": "openpto/problems/BudgetAllocation.py",
+   "status": "unchanged",
+   "upstream_sha256": "2e72ce847a4cc420e1f656eba030a518e5b8d36c6c17a5ea5ab340dce94d44d6"
+  },
+  {
+   "path": "openpto/problems/Knapsack.py",
+   "status": "unchanged",
+   "upstream_sha256": "cde84245cefbd87254cc0164e1812ac1b7d9268c0e93990ff150fa1f7dfa4651"
+  },
+  {
+   "path": "openpto/problems/PTOProblem.py",
+   "status": "unchanged",
+   "upstream_sha256": "9148bf94ab96cf8a2fcf7d36fb8afb6738d7ed38c1c26de10ec513b9fec76746"
+  }
+ ]
+}
